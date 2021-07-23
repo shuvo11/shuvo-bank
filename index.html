@@ -35,7 +35,7 @@
             <div class="col-md-4">
               <div class="withdraw status">
                 <h4>withdraw</h4>
-                <h1>$00</h1>
+                <h1>$<span id="currentWithdraw">00</span></h1>
               </div>
             </div>
             <div class="col-md-4">
@@ -82,10 +82,10 @@
           deposit.addEventListener('click',function(){
             const depositAmount = getInputNumber("depositamount");
 
-            const depositNumber = parseFloat(depositAmount);
+           
   
-          updatetext("currentDeposit",depositNumber);
-          updatetext("currentBalance",depositNumber);
+          updatetext("currentDeposit",depositAmount);
+          updatetext("currentBalance",depositAmount);
           document.getElementById("depositamount").value ="";
           
             })
@@ -108,9 +108,7 @@
              
      function updatetext(id,depositNumber){
       const currentBalance = document.getElementById(id).innerText;
- 
       const currentBalanceNumber = parseFloat(currentBalance);
-
       const totalBalance = depositNumber + currentBalanceNumber;
       document.getElementById(id).innerText = totalBalance;
 
